@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="mb-0">Daily Mood and Habit Tracker</h1>
+                <button id="logout-btn" class="btn btn-light">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        <section id="app-intro" class="mb-4">
+            <h2 class="mb-3">Welcome to Your Personal Mood and Habit Tracker!</h2>
+            <p>This app helps you track your daily mood and up to 5 habits. Here's how to use it:</p>
+            <ol>
+                <li>Select a date using the date picker below.</li>
+                <li>Rate your mood for the selected date by clicking on an emoji.</li>
+                <li>Select your gender to see relevant habits.</li>
+                <li>Check off the habits you've completed for that day.</li>
+                <li>Add new custom habits (up to 5) using the "Add Custom Habit" button.</li>
+                <li>Click "Save Entry" to record your data.</li>
+                <li>View your 7-day overview in the chart at the bottom.</li>
+            </ol>
+        </section>
+
+        <section id="date-selector" class="mb-4">
+            <label for="date" class="form-label">Select Date:</label>
+            <input type="date" id="date" name="date" class="form-control">
+        </section>
+        
+        <section id="mood-input" class="mb-4">
+            <h2 class="mb-3">How's your mood today?</h2>
+            <p>Click on an emoji to rate your mood:</p>
+            <div class="mood-buttons d-flex justify-content-between">
+                <button class="mood-btn btn btn-outline-primary" data-mood="1" title="Very Unhappy">😢</button>
+                <button class="mood-btn btn btn-outline-primary" data-mood="2" title="Unhappy">😕</button>
+                <button class="mood-btn btn btn-outline-primary" data-mood="3" title="Neutral">😐</button>
+                <button class="mood-btn btn btn-outline-primary" data-mood="4" title="Happy">🙂</button>
+                <button class="mood-btn btn btn-outline-primary" data-mood="5" title="Very Happy">😄</button>
+            </div>
+        </section>
+        
+        <section id="habit-tracker" class="mb-4">
+            <h2 class="mb-3">Daily Habits</h2>
+            <p>Select your gender and choose your habits:</p>
+            <div id="gender-selector" class="mb-3">
+                <button id="male-habits-btn" class="btn btn-outline-secondary me-2">Male</button>
+                <button id="female-habits-btn" class="btn btn-outline-secondary">Female</button>
+            </div>
+            <div id="habits-list" class="mb-3">
+                <!-- Habit checkboxes will be dynamically added here -->
+            </div>
+            <div id="custom-habits">
+                <h3 class="mb-3">Custom Habits</h3>
+                <div id="custom-habits-list" class="mb-3">
+                    <!-- Custom habit checkboxes will be dynamically added here -->
+                </div>
+                <button id="add-habit-btn" class="btn btn-secondary">Add Custom Habit</button>
+            </div>
+        </section>
+
+        <button id="save-entry-btn" class="btn btn-primary mb-4">Save Entry</button>
+        
+        <section id="data-visualization" class="mb-4">
+            <h2 class="mb-3">7-Day Overview</h2>
+            <p>Here's a summary of your mood and habits over the last 7 days:</p>
+            <canvas id="combined-chart"></canvas>
+        </section>
+
+        <section id="weekly-report" class="mb-4">
+            <h2 class="mb-3">Weekly Report</h2>
+            <div id="report-content"></div>
+        </section>
+    </main>
+
+    <footer class="bg-light py-3 mt-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Daily Mood and Habit Tracker</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
