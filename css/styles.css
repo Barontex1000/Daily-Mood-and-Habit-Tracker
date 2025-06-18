@@ -25,7 +25,7 @@ main {
     height: 60px;
     padding: 0;
     border-radius: 50%;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 
 .mood-btn:hover {
@@ -34,7 +34,19 @@ main {
 
 .mood-btn.selected {
     transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px #007bff55;
+    background-color: #e7f1ff;
+    border-color: #007bff;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+/* Fade effect for mood selection */
+.mood-btn.fade-in {
+    animation: fadeInMood 0.4s;
+}
+@keyframes fadeInMood {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.2); }
 }
 
 /* Gender selector */
@@ -69,18 +81,17 @@ main {
 
 /* Remove habit button */
 .remove-habit-btn {
-    background-color: #dc3545;
-    color: white;
+    margin-left: 1rem;
+    color: #dc3545;
+    background: none;
     border: none;
-    padding: 0.25rem 0.5rem;
-    margin-left: 0.5rem;
     cursor: pointer;
-    border-radius: 3px;
-    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    transition: color 0.2s;
 }
 
 .remove-habit-btn:hover {
-    background-color: #c82333;
+    color: #a71d2a;
 }
 
 /* Save entry button */

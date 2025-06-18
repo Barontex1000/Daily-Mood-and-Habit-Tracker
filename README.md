@@ -21,6 +21,8 @@ The Daily Mood and Habit Tracker is a web application designed to help users mon
 - 7-day overview chart
 - Weekly summary report
 - Responsive design for desktop and mobile use
+- **Firebase backend integration for authentication and data storage**
+- Inline error feedback and improved accessibility
 
 ## Getting Started
 
@@ -28,6 +30,7 @@ The Daily Mood and Habit Tracker is a web application designed to help users mon
 
 - A modern web browser (e.g., Chrome, Firefox, Safari)
 - Internet connection (for initial load and CDN resources)
+- A Firebase project (see below)
 
 ### Installation
 
@@ -40,29 +43,23 @@ The Daily Mood and Habit Tracker is a web application designed to help users mon
    cd mood-habit-tracker
    ```
 3. Open the `index.html` file in your web browser.
+4. **Configure Firebase:**
+   - Copy your Firebase project config into `js/firebase-config.js` as shown in the comments.
 
 No additional installation or setup is required as the application runs entirely in the browser.
 
 ## How to Use
 
-1. **Sign Up/Login**: Create an account or log in to an existing one.
-
+1. **Sign Up/Login**: Create an account or log in to an existing one. Authentication is handled by Firebase Auth.
 2. **Select a Date**: Use the date picker to choose the date you want to track.
-
 3. **Rate Your Mood**: Click on an emoji that best represents your mood for the selected date.
-
 4. **Select Gender**: Choose your gender to see relevant habit suggestions.
-
 5. **Track Habits**: Check off the habits you've completed for the day. You can:
    - Use pre-defined habits based on your gender selection
    - Add custom habits (up to 5) using the "Add Custom Habit" button
-
-6. **Save Entry**: Click the "Save Entry" button to record your mood and habits for the day.
-
-7. **View 7-Day Overview**: Scroll down to see a chart showing your mood and habit completion over the last 7 days.
-
+6. **Save Entry**: Click the "Save Entry" button to record your mood and habits for the day. Data is stored securely in Firestore under your user account.
+7. **View 7-Day Overview**: Scroll down to see a chart showing your mood and habit completion over the last 7 days (data is loaded from Firestore).
 8. **Read Weekly Report**: Below the chart, you'll find a summary of your week, including average mood and habit completion rates.
-
 9. **Logout**: Use the logout button in the header when you're done.
 
 ## Technical Details
@@ -73,12 +70,11 @@ The application is built using:
 - JavaScript
 - Chart.js
 - Bootstrap
-- Firebase
-
+- **Firebase (Auth & Firestore)**
 
 ## Contributing
 
-We welcome contributions to improve the Daily Mood and Habit Tracker! If you'd like to contribute, please follow these steps:
+I welcome contributions to improve the Daily Mood and Habit Tracker! If you'd like to contribute, please follow these steps:
 
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature/AmazingFeature`)
